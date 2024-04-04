@@ -6,19 +6,27 @@ class Movies_seen extends Model {}
 Movies_seen.init(
     {
         id: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
         title: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         review: {
-            type: DataType.DECIMAL,
+            type: DataTypes.DECIMAL,
             allowNull: false,
-        }
+        },
+        belongs_to: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'Users',
+                key: 'id'
+            },
+        },
     },
     {
         sequelize,
