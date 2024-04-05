@@ -16,7 +16,7 @@ Movies_seen.init(
             allowNull: false,
         },
         review: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(11,2),
             allowNull: false,
         },
         user_id: {
@@ -24,6 +24,14 @@ Movies_seen.init(
             allowNull: false,
             references: {
                 model: 'users',
+                key: 'id'
+            },
+        },
+        post_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'post',
                 key: 'id'
             },
         },

@@ -34,7 +34,7 @@ Comments.init(
             references: {
                 model: 'post',
                 key: 'id'
-            }
+            },
         }
     },
     {
