@@ -6,6 +6,11 @@ const data = [
         content: "this is my first post smile",
         user_id: 1,
     },
+    {
+        title: "First Post",
+        content: "this is my first post smile",
+        user_id: 1,
+    },
 
 ];
 
