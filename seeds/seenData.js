@@ -4,7 +4,7 @@ const data = [
     {
         title: "Scream",
         review: .90,
-        belongs_to: 1,
+        user_id: 1,
     },
 
 ];
