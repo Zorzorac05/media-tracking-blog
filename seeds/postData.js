@@ -4,8 +4,7 @@ const data = [
     {
         title: "First Post",
         content: "this is my first post smile",
-        date_created: "2024-03-10",
-        created_by: 1,
+        user_id: 1,
     },
 
 ];

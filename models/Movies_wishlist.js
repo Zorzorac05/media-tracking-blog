@@ -15,11 +15,11 @@ Movies_wishlist.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        belongs_to: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Users',
+                model: 'users',
                 key: 'id'
             },
         },

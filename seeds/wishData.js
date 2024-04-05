@@ -3,7 +3,7 @@ const { Movies_wishlist } = require('../models');
 const data = [
     {
         title: "Dune 2",
-        belongs_to: 1,
+        user_id: 1,
     },
 
 ];

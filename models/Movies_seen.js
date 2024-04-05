@@ -19,11 +19,11 @@ Movies_seen.init(
             type: DataTypes.DECIMAL,
             allowNull: false,
         },
-        belongs_to: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'Users',
+                model: 'users',
                 key: 'id'
             },
         },
