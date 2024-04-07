@@ -1,17 +1,17 @@
 const router = require('express').Router();
 const { Post } = require('../models');
 
-// GET all posts by logged in user and display them on homepage
+// GET for homepage shows some post without needing to log in
 router.get('/', async (req, res) => {
     try {
         const dbPostData = await Post.findAll();
 
-        const post = dbPostData.map((post) =>
+        const homePost = dbPostData.map((post) =>
             post.get({ plain: true })
         );
         res.render('homepage', {
-            post,
-            loggedIn: req.session.loggedIn,
+            homePost,
+            //loggedIn: req.session.loggedIn,
         });
     } catch (err) {
         console.log(err);
