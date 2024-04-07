@@ -23,7 +23,7 @@ const data = [
     //     user_id: 1,
     // },
     // {
-    //     title: "The BoarderLands",
+    //     title: "The BorderLands",
     //     user_id: 1,
     // },
     // {
@@ -43,16 +43,12 @@ const data = [
     //     user_id: 2,
     // },
     // {
-    //     title: "The Garfiled Movie",
+    //     title: "The Garfield Movie",
     //     user_id: 2,
     // },
     // {
     //     title: "Minecraft the Movie",
     //     user_id: 2,
-    // },
-    // {
-    //     title: "Transformers One",
-    //     user_id: 3,
     // },
     // {
     //     title: "Transformers One",
