@@ -1,0 +1,33 @@
+<h2>Handlebars template to populate a table</h2>
+
+<h3>People</h3>
+<div id="people"></div>
+
+<h3>Smart Phones</h3>
+<div id="smartphones"></div>
+
+<!-- The script element is used to define the Handlebars template -->
+<script type="text/x-handlebars-template" id="tableTemplate">
+  <table>
+<thead>
+  <tr>
+    {{#each array.[0]}}
+      <th>{{@key}}</th>
+    {{/each}}
+  </tr>
+</thead>
+<tbody>
+  {{#each array}}
+    <tr>
+    	{{#each this}}
+        <td>{{this}}</td>
+      {{/each}}
+    </tr>
+  {{/each}}
+</tbody>
+</table>
+</script>
+
+<div style="position: absolute;bottom: 5px;">
+  Read about this Fiddle at: <a href="http://jsdev.wikidot.com/howto:12" target="_blank">How To: Handlebars - Create Table element</a>
+</div>
