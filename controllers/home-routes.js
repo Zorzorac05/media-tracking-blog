@@ -58,10 +58,26 @@ router.get('/', async (req, res) => {
 //     }
 // });
 
+router.get('/users', (req, res) => {
+    if(req.session.loggedIn) {
+        res.redirect('/login');
+        return;
+    }
+    res.render('users');
+});
+
+router.get('/myMovies', (req, res) => {
+    if(req.session.loggedIn) {
+        res.redirect('/login');
+        return;
+    }
+    res.render('myMovies');
+});
+
 // Login route
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/login');
         return;
     }
     res.render('login');
