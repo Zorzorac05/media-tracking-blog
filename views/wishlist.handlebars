@@ -1,33 +1,94 @@
-<h2>Handlebars template to populate a table</h2>
-
-<h3>People</h3>
-<div id="people"></div>
-
-<h3>Smart Phones</h3>
-<div id="smartphones"></div>
-
-<!-- The script element is used to define the Handlebars template -->
-<script type="text/x-handlebars-template" id="tableTemplate">
-  <table>
-<thead>
-  <tr>
-    {{#each array.[0]}}
-      <th>{{@key}}</th>
-    {{/each}}
-  </tr>
-</thead>
-<tbody>
-  {{#each array}}
-    <tr>
-    	{{#each this}}
-        <td>{{this}}</td>
-      {{/each}}
-    </tr>
-  {{/each}}
-</tbody>
-</table>
-</script>
-
-<div style="position: absolute;bottom: 5px;">
-  Read about this Fiddle at: <a href="http://jsdev.wikidot.com/howto:12" target="_blank">How To: Handlebars - Create Table element</a>
+{{!-- <div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a New List:</h3>
+    <form class="form new-movie-form">
+      <div class="field">
+        <label class="label" for="movie-list">Title:</label>
+        <div class="control">
+          <input class="input" id="movie-list" name="movie-list" type="text" placeholder="Enter movie title" />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="movie-review">Review:</label>
+        <div class="control">
+          <textarea class="textarea" id="movie-review" name="movie-review" placeholder="Write your review"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button type="submit" class="button is-primary">Create</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
+ --}}
+
+  {{!-- {{#if movies_wishlists.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Watchlist:</h3>
+    {{#each movies_wishlists as |movies_wishlist|}}
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <h4><a href="/project/{{movies_wishlist.id}}">{{movies_wishlist.name}}</a></h4>
+        </div>
+        <div class="col-md-4">
+          <button class="button is-danger is-small" data-id="{{movies_wishlist.id}}">DELETE</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{/if}} --}}
+
+{{!-- {{#each homePost as |post|}}
+<a href="/post/"{{id}}>
+    <header>{{title}}</header>
+    <p>{{format_date date_created}}</p>
+</a>
+{{/each}} --}}
+
+<table class="table is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th class="is-link"><abbr title="Movies">Movie Title</abbr></th>
+      {{!-- <th></th> --}}
+      <th class="is-link"><abbr title="Review">Review</abbr></th>
+      <th class="is-link"><abbr title="Rating">Rating</abbr></th>
+      <th class="is-link"><abbr title="Title"></abbr></th>
+    </tr>
+  </thead>
+  <tfoot>
+
+  </tfoot>
+  <tbody>
+    <!-- Rows for data -->
+    <tr>
+      <th>thg</th>
+
+      <td>c</td>
+      <td>b</td>
+      <td class="checkbox">
+        <input type="checkbox"/>
+      </td>
+    </tr>
+
+    <tr>
+      <th>httyd</th>
+
+      <td>a</td>
+      <td>b</td>
+      <td class="checkbox">
+        <input type="checkbox"/>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+{{#each homePost as |post|}}
+<a href="/post/"{{id}}>
+    <header>{{title}}</header>
+    <p>{{format_date date_created}}</p>
+</a>
+{{/each}}

@@ -1,4 +1,4 @@
-<section class="hero is-primary is-fullheight">
+<section class="hero is-white is-info is-fullheight">
     {{#if logged_out}}
 <div class="hero-body">
   <div class="container">
@@ -9,7 +9,7 @@
             <div class="field">
               <label for="" class="label">Username</label>
               <div class="control has-icons-left">
-                <input type="email" placeholder="e.g. freddyfazbear87" class="input" required>
+                <input type="username" placeholder="e.g. freddyfazbear87" class="input" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -31,7 +31,7 @@
               </label>
             </div>
             <div class="field">
-              <button class="button is-success">
+              <button class="button is-link">
                 Login
               </button>
             </div>
@@ -49,7 +49,7 @@
             <div class="field">
               <label for="" class="label">Username</label>
               <div class="control has-icons-left">
-                <input type="email" placeholder="e.g. freddyfazbear87" class="input" required>
+                <input type="username" placeholder="e.g. freddyfazbear87" class="input" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -71,7 +71,7 @@
               </label>
             </div>
             <div class="field">
-              <button class="button is-success">
+              <button class="button is-link">
                 Signup
               </button>
             </div>
@@ -83,3 +83,4 @@
   {{/if}}
 </section>
 
+<script src="./login.js"></script>
