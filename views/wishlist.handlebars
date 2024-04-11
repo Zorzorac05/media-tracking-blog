@@ -1,15 +1,16 @@
 <article class="media">
   <div class="media-content">
+    <form id="submitForm">
     <div class="field">
       <label class="label">Post Title</label>
       <div class="control">
-        <input class="input" type="text" placeholder="What is this about?">
+        <input class="input" id="postTitle" type="text" placeholder="What is this about?">
       </div>
     </div>
     <div class="field">
       <label class="label">Movie Title</label>
       <div class="control">
-        <input class="input" type="text" placeholder="e.g Godzilla">
+        <input class="input" id="movieTitle" type="text" placeholder="e.g Godzilla">
       </div>
     </div>
     <label class="checkbox">
@@ -28,18 +29,19 @@
       <div class="field">
         <label class="label">Review</label>
         <p class="control">
-          <textarea class="textarea" placeholder="Write your thoughts..."></textarea>
+          <textarea class="textarea" id="content" placeholder="Write your thoughts..."></textarea>
         </p>
       </div>
     </div>
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
-          <a class="button is-link">Post</a>
+          <button class="button is-link" id="sendButton">Post</button>
         </div>
       </div>
     </nav>
   </div>
+  </form>
 </article>
 
 <script>
@@ -85,3 +87,5 @@
     <p>{{format_date date_created}}</p>
 </a>
 {{/each}}
+
+<script src="./js/makePost.js"></script>
