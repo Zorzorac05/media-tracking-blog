@@ -71,7 +71,7 @@ router.get('/myMovies', (req, res) => {
         res.redirect('/login');
         return;
     }
-    res.render('myMovies');
+    res.render('wishlist');
 });
 
 // Login route
