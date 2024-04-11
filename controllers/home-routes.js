@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
         const homePost = dbPostData.map((post) =>
             post.get({ plain: true })
         );
+        //console.log(homePost);
         res.render('homepage', {
             homePost,
             //loggedIn: req.session.loggedIn,
@@ -50,6 +51,7 @@ router.post('/post', async (req, res) => {
     try {
         const newPost = await Post.create(req.body);
         // return res.json(newPost);
+        return;
     }catch (err) {
         res.status(500).json(err);
     }
@@ -57,14 +59,37 @@ router.post('/post', async (req, res) => {
 
 //add to wishlist table
 router.post('/post/wish', async (req, res) => {
-    const movie = await Movies_wishlist.create(req.body);
-    return res.json(movie);
+    let position = await Post.findAll({
+        order: [
+            ['id', 'DESC'],
+        ],
+    });
+    let newMovie = {
+        title: req.body.title,
+        user_id: req.body.user_id,
+        post_id: position[0].id + 1,
+    };
+    console.log(newMovie);
+     const movie = await Movies_wishlist.create(newMovie);
+    //return res.json(movie);
   });
 
   //add to seen movies table
   router.post('/post/seen', async (req, res) => {
-    const movie = await Movies_seen.create(req.body);
-    return res.json(movie);
+    let position = await Post.findAll({
+        order: [
+            ['id', 'DESC'],
+        ],
+    });
+    let newMovie = {
+        title: req.body.title,
+        review: req.body.review,
+        user_id: req.body.user_id,
+        post_id: position[0].id + 1,
+    };
+    console.log(newMovie);
+     const movie = await Movies_seen.create(newMovie);
+    //return res.json(movie);
   });
 
 module.exports = router;
