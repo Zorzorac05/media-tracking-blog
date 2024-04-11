@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../models');
+const { Post, Users, Comments, Movies_seen, Movies_wishlist } = require('../models');
 
 // GET for homepage shows some post without needing to log in
 router.get('/', async (req, res) => {
@@ -45,8 +45,10 @@ router.get('/login', (req, res) => {
 });
 
 //route to let users make post
-router.post('/post', (req, res) => {
-    
+router.post('/post', async (req, res) => {
+  const newPost = await Post.create(req.body);
+  console.log(newPost);
+  return res.json(newPost);
 });
 
 module.exports = router;
