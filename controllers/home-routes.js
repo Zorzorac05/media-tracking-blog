@@ -4,7 +4,14 @@ const { Post, Users, Comments, Movies_seen, Movies_wishlist } = require('../mode
 // GET for homepage shows some post without needing to log in
 router.get('/', async (req, res) => {
     try {
-        const dbPostData = await Post.findAll();
+        const dbPostData = await Post.findAll({
+            include: [
+                {
+                    model: Movies_seen,
+                    attributes: ['title', 'review'],
+                }
+            ]
+        });
 
         const homePost = dbPostData.map((post) =>
             post.get({ plain: true })
