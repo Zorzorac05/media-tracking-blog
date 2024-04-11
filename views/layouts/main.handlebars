@@ -3,102 +3,87 @@
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Media Tracking Blog</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-  <link rel="stylesheet" href="/css/style.scss">
+</head>
 
-<section class="hero is-white is-fullheight-with-navbar block">
+<body>
+  <section class="hero is-fullheight-with-navbar block">
     {{#if logged_in}}
-    <div class="hero-head">
-        <nav class="navbar">
+      <div class="hero-head">
+        <!-- Wrap the nav element in a hero with is-fullwidth -->
+        <div class="hero is-fullwidth has-background is-link">
+          <nav class="navbar">
             <div class="container">
-                <div class="navbar-title is-size-2 has-text-weight-bold">
-                    <a class="navbar-item">Media Tracking Blog</a>
-                    {{!-- <span class="navbar-burger" data-target="navbarBasicExample">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span> --}}
+              <div class="navbar-title is-size-2 has-text-weight-bold">
+                <a class="navbar-item">Media Tracking Blog</a>
+              </div>
+              <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                  <a href="/" class="navbar-item is-active has-text-weight-medium">Home</a>
+                  <a href="/users" class="navbar-item is-active has-text-weight-medium">User Hub</a>
+                  <a href="/myMovies" class="navbar-item is-active has-text-weight-medium">Movies</a>
                 </div>
-                <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-start">
-                        <a href="/" class="navbar-item is-active has-text-weight-medium">
-                            Home
-                        </a>
-                        <a href="/users" class="navbar-item is-active has-text-weight-medium">
-                            User Hub
-                        </a>
-                        <a href="/myMovies" class="navbar-item is-active has-text-weight-medium">
-                            Movies
-                        </a>
-                    </div>
+              </div>
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a href="/logout" class="button is-info">
+                      <strong>Logout</strong>
+                    </a>
+                  </div>
                 </div>
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                        <a href="/logout" class="button is-link">
-                        <strong>Logout</strong>
-                        </a>
-                </div>
+              </div>
             </div>
-        </nav>
-    </div>
+          </nav>
+        </div>
+      </div>
     {{else}}
-    <div class="hero-head">
-        <nav class="navbar card has-background is-info">
+      <div class="hero-head">
+        <!-- Wrap the nav element in a hero with is-fullwidth -->
+        <div class="hero is-fullwidth has-background is-link">
+          <nav class="navbar">
             <div class="container">
-                <div class="navbar-title is-size-2 has-text-weight-bold">
-                    <a class="navbar-item">Media Tracking Blog</a>
-                    {{!-- <span class="navbar-burger" data-target="navbarBasicExample">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span> --}}
+              <div class="navbar-title is-size-2 has-text-weight-bold">
+                <a class="navbar-item">Media Tracking Blog</a>
+              </div>
+              <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                  <a href="/" class="navbar-item is-active has-text-weight-medium">Home</a>
+                  <a href="/users" class="navbar-item is-active has-text-weight-medium">User Hub</a>
+                  <a href="/myMovies" class="navbar-item is-active has-text-weight-medium">Movies</a>
                 </div>
-                <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-start">
-                        <a href="/" class="navbar-item is-active has-text-weight-medium">
-                            Home
-                        </a>
-                        <a href="/users" class="navbar-item is-active has-text-weight-medium">
-                            User Hub
-                        </a>
-                        <a href="/myMovies" class="navbar-item is-active has-text-weight-medium">
-                            Movies
-                        </a>
-
-                        {{!-- <a href="/login" class="navbar-item is-active">
-                            Login
-                        </a> --}}
-
-                    </div>
+              </div>
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a href="/login" class="button is-info">
+                      <strong>Login</strong>
+                    </a>
+                  </div>
                 </div>
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                        <a href="/login" class="button is-link">
-                        <strong>Login</strong>
-                        </a>
-                </div>
+              </div>
             </div>
-        </nav>
-    </div>
+          </nav>
+        </div>
+      </div>
     {{/if}}
 
-  <main>
-    <aside>
-      <h2></h2>
-    </aside>
-    <div class="post">
-      {{{body}}}
-    </div>
-  </main> 
+    <main>
+      <aside>
+        <h2></h2>
+      </aside>
+      <div class="post">
+        {{{body}}}
+      </div>
+    </main> 
 
-</section>
+  </section>
 
   {{#if logged_in}}
-  <script src="/logout.js"></script>
+    <script src="/logout.js"></script>
   {{/if}}
 </body>
 

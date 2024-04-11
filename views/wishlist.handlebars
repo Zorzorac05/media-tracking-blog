@@ -1,51 +1,62 @@
 <article class="media">
   <div class="media-content">
-    <form id="submitForm">
     <div class="field">
       <label class="label">Post Title</label>
       <div class="control">
-        <input class="input" id="postTitle" type="text" placeholder="What is this about?">
+        <input class="input" type="text" placeholder="What is this about?">
       </div>
     </div>
     <div class="field">
       <label class="label">Movie Title</label>
       <div class="control">
-        <input class="input" id="movieTitle" type="text" placeholder="e.g Godzilla">
+        <input class="input" type="text" placeholder="e.g Godzilla">
       </div>
     </div>
-    <label class="checkbox">
-      <input type="checkbox" id="seen-movie-checkbox" onchange="toggleRatingReview()">
-      I have seen this movie ✅
+    {{!-- <label class="checkbox">
+      <input type="checkbox" id="seen-movie-checkbox" onchange="toggleRating()">
+      I have seen this movie
     </label>
     <label class="checkbox">
       <input type="checkbox" />
-      I want to see this movie 🤔
-    </label>
-    <div class="field" id="rating-review-fields" style="display: none;">
+      I want to see this movie
+    </label> --}}
+    {{!-- <div class="field" id="rating-review-fields" style="display: none;">
       <label class="label">Rating</label>
       <div class="control">
         <input class="input" type="text">
-      </div>
+      </div> --}}
       <div class="field">
-        <label class="label">Review</label>
+        <label class="label">Write Your Thoughts!</label>
         <p class="control">
-          <textarea class="textarea" id="content" placeholder="Write your thoughts..."></textarea>
+          <textarea class="textarea" placeholder="Write your thoughts..."></textarea>
         </p>
+      </div>
+        <label class="checkbox">
+      <input type="checkbox" id="seen-movie-checkbox" onchange="toggleRating()">
+      I have seen this movie
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" />
+      I want to see this movie
+    </label>
+          <div class="field" id="rating-review-fields" style="display: none;">
+      <label class="label">Rating</label>
+      <div class="control">
+        <input class="input" type="text">
       </div>
     </div>
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
-          <button class="button is-link" id="sendButton">Post</button>
+          <a class="button is-link">Post</a>
         </div>
       </div>
     </nav>
   </div>
-  </form>
 </article>
 
 <script>
-  function toggleRatingReview() {
+  function toggleRating() {
     var checkbox = document.getElementById("seen-movie-checkbox");
     var ratingReviewFields = document.getElementById("rating-review-fields");
     if (checkbox.checked) {
@@ -79,13 +90,3 @@
     {{/each}}
   </tbody>
 </table>
-
-
-{{#each homePost as |post|}}
-<a href="/post/"{{id}}>
-    <header>{{title}}</header>
-    <p>{{format_date date_created}}</p>
-</a>
-{{/each}}
-
-<script src="./js/makePost.js"></script>
