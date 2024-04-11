@@ -3,7 +3,7 @@ const { Model } = require('sequelize');
 const { Post, Users, Comments, Movies_seen, Movies_wishlist } = require('../../models');
 
 //used to search for users
-router.post('/:name', async (req, res) => {
+router.get('/:name', async (req, res) => {
     try {
         const userSearch = await Users.findOne({
             where: {name: req.params.name},
@@ -18,10 +18,12 @@ router.post('/:name', async (req, res) => {
             ],
             
         });
-        res.render('user', {
-            userSearch,
+
+        let user = userSearch.get({ plain: true });
+        res.render('users', {
+            user,
         });
-        res.json(userSearch);
+        //res.json(userSearch);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
