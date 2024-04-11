@@ -46,9 +46,25 @@ router.get('/login', (req, res) => {
 
 //route to let users make post
 router.post('/post', async (req, res) => {
-  const newPost = await Post.create(req.body);
-  console.log(newPost);
-  return res.json(newPost);
+    console.log(req.body.title);
+    try {
+        const newPost = await Post.create(req.body);
+        // return res.json(newPost);
+    }catch (err) {
+        res.status(500).json(err);
+    }
 });
+
+//add to wishlist table
+router.post('/post/wish', async (req, res) => {
+    const movie = await Movies_wishlist.create(req.body);
+    return res.json(movie);
+  });
+
+  //add to seen movies table
+  router.post('/post/seen', async (req, res) => {
+    const movie = await Movies_seen.create(req.body);
+    return res.json(movie);
+  });
 
 module.exports = router;
