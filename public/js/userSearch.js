@@ -4,7 +4,7 @@ const searchHandler = async (event) => {
     let search = document.querySelector('searchBar').ariaValueMax.trim();
 
     if(search) {
-        const response = await fetch('/api/users/search', {
+        const response = await fetch('/api/search', {
             method: 'POST',
             body: JSON.stringify({search}),
             headers: {'Content-Type': 'application/json'},

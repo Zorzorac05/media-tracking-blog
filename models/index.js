@@ -18,4 +18,10 @@ Post.hasOne(Movies_seen);
 Movies_wishlist.belongsTo(Post);
 Post.hasOne(Movies_wishlist);
 
+Movies_seen.belongsTo(Users);
+Users.hasMany(Movies_seen);
+
+Movies_wishlist.belongsTo(Users);
+Users.hasMany(Movies_wishlist);
+
 module.exports = { Users, Post, Comments, Movies_seen, Movies_wishlist };
