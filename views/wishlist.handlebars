@@ -1,15 +1,16 @@
 <article class="media">
+  <form id="submitForm">
   <div class="media-content">
     <div class="field">
       <label class="label">Post Title</label>
       <div class="control">
-        <input class="input" type="text" placeholder="What is this about?">
+        <input class="input" type="text" id="postTitle" placeholder="What is this about?">
       </div>
     </div>
     <div class="field">
       <label class="label">Movie Title</label>
       <div class="control">
-        <input class="input" type="text" placeholder="e.g Godzilla">
+        <input class="input" type="text" id="movieTitle" placeholder="e.g Godzilla">
       </div>
     </div>
     {{!-- <label class="checkbox">
@@ -28,7 +29,7 @@
       <div class="field">
         <label class="label">Write Your Thoughts!</label>
         <p class="control">
-          <textarea class="textarea" placeholder="Write your thoughts..."></textarea>
+          <textarea class="textarea" id="content" placeholder="Write your thoughts..."></textarea>
         </p>
       </div>
         <label class="checkbox">
@@ -48,11 +49,12 @@
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
-          <a class="button is-link">Post</a>
+          <button class="button is-link">Post</a>
         </div>
       </div>
     </nav>
   </div>
+  </form>
 </article>
 
 <script>
@@ -90,3 +92,5 @@
     {{/each}}
   </tbody>
 </table>
+
+<script src="./js/makePost.js"></script>
