@@ -4,25 +4,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Tracker</title>
+  <title>Media Tracking Blog</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-</head>
+  <link rel="stylesheet" href="/css/style.scss">
 
 <section class="hero is-white is-fullheight-with-navbar block">
     {{#if logged_in}}
     <div class="hero-head">
-        <nav class="navbar card">
+        <nav class="navbar card has-background is-info">
             <div class="container">
-                <div class="navbar-title is-size-5">
+                <div class="navbar-title is-size-2">
                     <a class="navbar-item">Media Tracking Blog</a>
-                    <span class="navbar-burger" data-target="navbarMenuHeroB">
+                    {{!-- <span class="navbar-burger" data-target="navbarBasicExample">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </span>
+                    </span> --}}
                 </div>
-                <div id="navbarMenuHeroB" class="navbar-menu">
-                    <div class="navbar-end">
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
                         <a href="/" class="navbar-item is-active">
                             Home
                         </a>
@@ -32,28 +32,32 @@
                         <a href="/myMovies" class="navbar-item is-active">
                             Movies
                         </a>
-                        <a href="/logout" class="navbar-item is-active">
-                            Logout
-                       </a>
                     </div>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                        <a href="/logout" class="button is-link">
+                        <strong>Logout</strong>
+                        </a>
                 </div>
             </div>
         </nav>
     </div>
     {{else}}
     <div class="hero-head">
-        <nav class="navbar card">
+        <nav class="navbar card has-background is-info">
             <div class="container">
-                <div class="navbar-title is-size-5">
+                <div class="navbar-title is-size-2">
                     <a class="navbar-item">Media Tracking Blog</a>
-                    <span class="navbar-burger" data-target="navbarMenuHeroB">
+                    {{!-- <span class="navbar-burger" data-target="navbarBasicExample">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </span>
+                    </span> --}}
                 </div>
-                <div id="navbarMenuHeroB" class="navbar-menu">
-                    <div class="navbar-end">
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
                         <a href="/" class="navbar-item is-active">
                             Home
                         </a>
@@ -63,15 +67,20 @@
                         <a href="/myMovies" class="navbar-item is-active">
                             Movies
                         </a>
-                        <a href="/login" class="navbar-item is-active">
-                            Login
-                        </a>
                     </div>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                        <a href="/login" class="button is-link">
+                        <strong>Login</strong>
+                        </a>
                 </div>
             </div>
         </nav>
     </div>
     {{/if}}
+
   <main>
     <aside>
       <h2></h2>
@@ -82,5 +91,10 @@
   </main> 
 
 </section>
+
+  {{#if logged_in}}
+  <script src="/logout.js"></script>
+  {{/if}}
+</body>
 
 </html>
