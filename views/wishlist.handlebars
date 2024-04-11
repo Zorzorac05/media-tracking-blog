@@ -51,39 +51,25 @@
   <thead>
     <tr>
       <th class="is-link"><abbr title="Movies">Movie Title</abbr></th>
-      {{!-- <th></th> --}}
       <th class="is-link"><abbr title="Review">Review</abbr></th>
       <th class="is-link"><abbr title="Rating">Rating</abbr></th>
       <th class="is-link"><abbr title="Title"></abbr></th>
     </tr>
   </thead>
-  <tfoot>
-
-  </tfoot>
   <tbody>
-    <!-- Rows for data -->
-    <tr>
-      <th>thg</th>
-
-      <td>c</td>
-      <td>b</td>
-      <td class="checkbox">
-        <input type="checkbox"/>
-      </td>
-    </tr>
-
-    <tr>
-      <th>httyd</th>
-
-      <td>a</td>
-      <td>b</td>
-      <td class="checkbox">
-        <input type="checkbox"/>
-      </td>
-    </tr>
-
+    {{#each movies}}
+      <tr>
+        <td>{{this.title}}</td>
+        <td>{{this.review}}</td>
+        <td>{{this.rating}}</td>
+        <td class="checkbox">
+          <input type="checkbox"/>
+        </td>
+      </tr>
+    {{/each}}
   </tbody>
 </table>
+
 
 
 {{#each homePost as |post|}}

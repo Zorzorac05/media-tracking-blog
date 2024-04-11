@@ -18,9 +18,9 @@ router.post('/:name', async (req, res) => {
             ],
             
         });
-        // res.render('user', {
-        //     userSearch,
-        // });
+        res.render('user', {
+            userSearch,
+        });
         res.json(userSearch);
     } catch (err) {
         console.log(err);
