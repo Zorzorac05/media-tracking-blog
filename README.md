@@ -37,3 +37,6 @@ This project is unlicensed
 
 ## Screenshots
 
+![Home Page](https://github.com/Zorzorac05/media-tracking-blog/assets/153480227/5e9f077c-43a0-49e0-afce-7f2b692de9e7)
+![Post Creation](https://github.com/Zorzorac05/media-tracking-blog/assets/153480227/f33a9cf5-58f4-4c65-ae05-74f788edf569)
+![User Searchability](https://github.com/Zorzorac05/media-tracking-blog/assets/153480227/b033d8e8-7b07-4cae-b574-72eea2b4afe3)
