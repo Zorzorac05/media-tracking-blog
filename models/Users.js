@@ -19,6 +19,7 @@ Users.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -43,5 +44,8 @@ Users.init(
   }
 );
 
+Users.prototype.validPassword = function (password) {
+  return bcrypt.compareSync(password, this.password);
+};
+
 module.exports = Users;
- 

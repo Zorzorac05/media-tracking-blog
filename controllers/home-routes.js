@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, Users, Comments, Movies_seen, Movies_wishlist } = require('../models');
-
+const withAuth = require('../utils/auth');
 // GET for homepage shows some post without needing to log in
 router.get('/', async (req, res) => {
     try {
@@ -27,16 +27,23 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/users', (req, res) => {
-    if(req.session.loggedIn) {
-        res.redirect('/login');
-        return;
+router.get('/users', async (req, res) => {
+    // if (req.session.loggedIn) {
+    //     res.redirect('/login');
+    //     return;
+    // }
+    // res.render('users');
+    try {
+        const users = await Users.findAll();
+        res.json(users);
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
-    res.render('users');
 });
 
-router.get('/myMovies', (req, res) => {
-    if(req.session.loggedIn) {
+router.get('/myMovies', withAuth, (req, res) => {
+    if (req.session.loggedIn) {
         res.redirect('/login');
         return;
     }
@@ -59,7 +66,7 @@ router.post('/post', async (req, res) => {
         const newPost = await Post.create(req.body);
         // return res.json(newPost);
         return;
-    }catch (err) {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
@@ -77,12 +84,12 @@ router.post('/post/wish', async (req, res) => {
         post_id: position[0].id + 1,
     };
     console.log(newMovie);
-     const movie = await Movies_wishlist.create(newMovie);
+    const movie = await Movies_wishlist.create(newMovie);
     //return res.json(movie);
-  });
+});
 
-  //add to seen movies table
-  router.post('/post/seen', async (req, res) => {
+//add to seen movies table
+router.post('/post/seen', async (req, res) => {
     let position = await Post.findAll({
         order: [
             ['id', 'DESC'],
@@ -95,8 +102,8 @@ router.post('/post/wish', async (req, res) => {
         post_id: position[0].id + 1,
     };
     console.log(newMovie);
-     const movie = await Movies_seen.create(newMovie);
+    const movie = await Movies_seen.create(newMovie);
     //return res.json(movie);
-  });
+});
 
 module.exports = router;

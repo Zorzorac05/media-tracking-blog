@@ -1,10 +1,10 @@
 // Placeholder for user-routes, to be updated when the need arises
-
+const express = require('express');
 const router = require('express').Router();
-const { User } = require('../../models');
+const { Users } = require('../../models');
 
-// CREATE new user
-router.post('/', async (req, res) => {
+// User Signup
+router.post('/signup', async (req, res) => {
     try {
         const dbUserData = await User.create({
             username: req.body.username,
@@ -22,46 +22,37 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Login
-router.post('/login', async (req, res) => {
-    try {
-        const dbUserData = await User.findOne({
-            where: {
-                name: req.body.name,
-            },
-        });
+// User Login
 
+router.post('/login', async (req, res) => {
+    console.log(req.body.username)
+    try {
+
+        const dbUserData = await Users.findOne({ where: { name: req.body.name } });
+
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.logged_in = true;
+            res.json({ user: dbUserData, message: 'You did it Charlie, you won!' })
+        })
         if (!dbUserData) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect Username or password. Lets try that again.' });
-            return;
+            return res.status(400).json({ message: 'Incorrect Username or Password. Lets try that again' });
         }
 
         const validPassword = await dbUserData.checkPassword(req.body.password);
 
         if (!validPassword) {
-            res
-                .status(400)
-                .json({ message: 'Incorrect Username or password. Lets try that again.' });
-            return;
+            return res.status(400).json({ message: 'Incorrect Username or Password. Lets try that again' });
         }
-
-        req.session.save(() => {
-            req.session.loggedIn = true;
-
-            res
-                .status(200)
-                .json({ user: dbUserData, message: 'Success!' });
-        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-// Logout
-router.post('/logout', (req, res) => {
+
+// User Logout
+router.get('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();

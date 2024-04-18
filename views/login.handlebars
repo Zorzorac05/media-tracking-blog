@@ -1,11 +1,11 @@
 <section class="hero is-white is-info is-fullheight">
-    {{#if logged_out}}
-<div class="hero-body">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-        <h1 class="title is-1">Create An Account!</h1>
-        <form action="" class="box">
+  {{#if logged_out}}
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+          <h1 class="title is-1">Create An Account!</h1>
+          <form action="/login" method="post" class="box">
             <div class="field">
               <label for="" class="label">Username</label>
               <div class="control has-icons-left">
@@ -27,7 +27,7 @@
             <div class="field">
               <label for="" class="checkbox">
                 <input type="checkbox">
-               Remember me
+                Remember me
               </label>
             </div>
             <div class="field">
@@ -40,25 +40,25 @@
       </div>
     </div>
   </div>
-{{else}}
+  {{else}}
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-          <form action="" class="box">
+          <form action="" id="login-form" class="box">
             <div class="field">
-              <label for="" class="label">Username</label>
+              <label for="username-login" class="label">Username</label>
               <div class="control has-icons-left">
-                <input type="username" placeholder="e.g. freddyfazbear87" class="input" required>
+                <input id="username-login" type="username" placeholder="e.g. freddyfazbear87" class="input" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
               </div>
             </div>
             <div class="field">
-              <label for="" class="label">Password</label>
+              <label for="password-login" class="label">Password</label>
               <div class="control has-icons-left">
-                <input type="password" placeholder="*******" class="input" required>
+                <input id="password-login" type="password" placeholder="*******" class="input" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-lock"></i>
                 </span>
@@ -67,12 +67,12 @@
             <div class="field">
               <label for="" class="checkbox">
                 <input type="checkbox">
-               Remember me
+                Remember me
               </label>
             </div>
             <div class="field">
-              <button class="button is-link">
-                Signup
+              <button type="submit" class="button is-link">
+                Login
               </button>
             </div>
           </form>
@@ -83,4 +83,4 @@
   {{/if}}
 </section>
 
-<script src="./login.js"></script>
+<script src="./js/login.js"></script>
